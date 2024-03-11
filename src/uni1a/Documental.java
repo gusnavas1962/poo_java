@@ -37,4 +37,9 @@ public class Documental extends ContenidoAudiovisual {
         System.out.println("Tema: " + this.tema);
         System.out.println();
     }
+    
+    @Override
+    public void agregaDatoAdicional(String dato){
+    	investigadores.add(new Investigador(dato));
+    }
 }

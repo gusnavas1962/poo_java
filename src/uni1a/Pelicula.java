@@ -3,6 +3,7 @@
  */
 package uni1a;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 // Subclase Pelicula que extiende de ContenidoAudiovisual
 public class Pelicula extends ContenidoAudiovisual {
@@ -27,14 +28,21 @@ public class Pelicula extends ContenidoAudiovisual {
         this.estudio = estudio;
     }
     
+    // Modificar el método mostrarDetalles en la clase Pelicula para que use toStringCSV
     @Override
     public void mostrarDetalles() {
-        System.out.println("Detalles de la película:");
-        System.out.println("ID: " + getId());
-        System.out.println("Título: " + getTitulo());
-        System.out.println("Duración en minutos: " + getDuracionEnMinutos());
-        System.out.println("Género: " + getGenero());
-        System.out.println("Estudio: " + estudio);
-        System.out.println();
+        System.out.println(toStringCSV());
     }
+
+    // Modificar el método toStringCSV en la clase Pelicula
+    @Override
+    public String toStringCSV() {
+       String actoresCSV = actores.stream().map(Actor::toStringCSV).collect(Collectors.joining(";"));
+       return super.toStringCSV() + "," + estudio + "," + actoresCSV;
+    }
+    @Override
+    public void agregaDatoAdicional(String dato){
+    	agregarActor(new Actor(dato));
+    }
+
 }

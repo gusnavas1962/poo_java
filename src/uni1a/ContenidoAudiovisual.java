@@ -46,5 +46,14 @@ public abstract class ContenidoAudiovisual {
         return id;
     }
     
+
+    // Agregar método toStringCSV a la clase ContenidoAudiovisual
+    public String toStringCSV() {
+        return getId() + "," + getTitulo() + "," + getDuracionEnMinutos() + "," + getGenero();
+    }
+
+    public abstract void agregaDatoAdicional(String dato);
+
     public abstract void mostrarDetalles();
+
 }

@@ -37,4 +37,9 @@ public class SerieDeTV extends ContenidoAudiovisual {
         System.out.println("Temporadas: " + this.temporadas);
         System.out.println();
     }
+    
+    @Override
+    public void agregaDatoAdicional(String dato){
+    	agregarTemporada(Temporada.temporadaNuevaPara2Numeros(dato));
+    }
 }

@@ -15,4 +15,10 @@ public class Actor {
         this.nombre = nombre;
     }
     
+	// Agregado método toStringCSV a la clase Actor
+	//  @Override
+	public String toStringCSV() {
+		return nombre;
+	}
+    
 }

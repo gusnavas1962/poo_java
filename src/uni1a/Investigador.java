@@ -14,4 +14,10 @@ public class Investigador {
     public void setNombre(String nombre){
         this.nombre = nombre;
     }
+    
+	// Agregar método toStringCSV a la clase Investigador
+	//  @Override
+	public String toStringCSV() {
+		return nombre;
+	}
 }
