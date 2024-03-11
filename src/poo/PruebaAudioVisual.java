@@ -2,24 +2,38 @@ package poo;
 import uni1a.*;
 
 public class PruebaAudioVisual {
+    public static void main(String[] args) {
+        System.out.println("Hello from AWS Cloud9!");
 
-	public static void main(String[] args) {
-		System.out.println("Hello from Eclipse!");
-
-        // Crear instancias adicionales de ContenidoAudiovisual
-        ContenidoAudiovisual av = new ContenidoAudiovisual("Avatar", 125, "Accion");
-        ContenidoAudiovisual deeter = new ContenidoAudiovisual("De aqui a la Eternindad", 90, "accion");
-        ContenidoAudiovisual inception = new ContenidoAudiovisual("Inception", 148, "Sci-Fi");
-        ContenidoAudiovisual starWars = new ContenidoAudiovisual("Star Wars", 135, "Fantasy");
-        ContenidoAudiovisual matrix = new ContenidoAudiovisual("Matrix", 136, "Sci-Fi");
+        // Crear instancias de las subclases
+        Pelicula avatar = new Pelicula("Avatar", 125, "Accion", "20th Century Studios");
+        SerieDeTV got = new SerieDeTV("Game of Thrones", 60, "Fantasy", 8);
+        Documental cosmos = new Documental("Cosmos", 45, "Science", "Astronomy");
 
         // Mostrar los detalles de cada contenido audiovisual
-        System.out.println("Detalles del contenido:");
-        System.out.println("ID: " + matrix.getId());
-        System.out.println("Título: " + starWars.getTitulo());
-        System.out.println("Duración en minutos: " + deeter.getDuracionEnMinutos());
-        System.out.println("Género: " + inception.getGenero());
-        System.out.println();
-	}
+        mostrarDetalles(avatar);
+        mostrarDetalles(got);
+        mostrarDetalles(cosmos);
+    }
 
+    // Método para mostrar los detalles de un ContenidoAudiovisual
+    public static void mostrarDetalles(ContenidoAudiovisual contenido) {
+        System.out.println("Detalles del contenido:");
+        System.out.println("ID: " + contenido.getId());
+        System.out.println("Título: " + contenido.getTitulo());
+        System.out.println("Duración en minutos: " + contenido.getDuracionEnMinutos());
+        System.out.println("Género: " + contenido.getGenero());
+        if (contenido instanceof Pelicula) {
+            Pelicula pelicula = (Pelicula) contenido;
+            System.out.println("Estudio: " + pelicula.getEstudio());
+        } else if (contenido instanceof SerieDeTV) {
+            SerieDeTV serie = (SerieDeTV) contenido;
+            System.out.println("Temporadas: " + serie.getTemporadas());
+        } else if (contenido instanceof Documental) {
+            Documental documental = (Documental) contenido;
+            System.out.println("Tema: " + documental.getTema());
+        }
+               
+        System.out.println();
+    }
 }
