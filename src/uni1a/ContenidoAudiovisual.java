@@ -1,6 +1,6 @@
 package uni1a;
 
-public class ContenidoAudiovisual {
+public abstract class ContenidoAudiovisual {
     private static int contar = 0;
     private String titulo;
     private int duracionEnMinutos;
@@ -45,4 +45,6 @@ public class ContenidoAudiovisual {
     public int getId() {
         return id;
     }
+    
+    public abstract void mostrarDetalles();
 }
